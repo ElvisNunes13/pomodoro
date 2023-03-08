@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pomodoro/pages/pomodoro.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -11,6 +14,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Pomodoro();
+    return const Pomodoro();
   }
 }
