@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:pomodoro/components/Botoes.dart';
+import 'package:pomodoro/components/Cronometro.dart';
+import 'package:pomodoro/components/EntradaTempo.dart';
+import 'package:pomodoro/store/contador.store.dart';
+import 'package:pomodoro/store/pomodoro.store.dart';
+import 'package:provider/provider.dart';
 
-class Pomodoro extends StatefulWidget {
-  const Pomodoro({super.key});
-
-  @override
-  State<Pomodoro> createState() => _PomodoroState();
-}
-
-class _PomodoroState extends State<Pomodoro> {
+class Pomodoro extends StatelessWidget {
+  Pomodoro({super.key});
   @override
   Widget build(BuildContext context) {
+    final store = Provider.of<PomodoroStore>(context);
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -22,27 +23,14 @@ class _PomodoroState extends State<Pomodoro> {
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
                 padding: EdgeInsets.only(top: 18),
-                child: Text(
-                  'Pomodoro',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 40,
-                  ),
-                ),
               ),
               Expanded(
                 child: Center(
-                  child: Text(
-                    '25:00',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 80,
-                    ),
-                  ),
+                  child: Cronometro(),
                 ),
               ),
               Expanded(
@@ -58,103 +46,66 @@ class _PomodoroState extends State<Pomodoro> {
                   child: Padding(
                     padding: EdgeInsets.only(
                       top: 30,
-                      left: 20,
-                      right: 20,
+                      left: 10,
+                      right: 10,
                     ),
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      'Estudo',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                    SizedBox(height: 10),
-                                    Text(
-                                      '25:00',
-                                      style: TextStyle(fontSize: 60),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      'Descanso',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                    SizedBox(height: 10),
-                                    Text(
-                                      '5:00',
-                                      style: TextStyle(fontSize: 60),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Text(
-                                'Contador',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                              SizedBox(height: 10),
-                              Text(
-                                '5',
-                                style: TextStyle(fontSize: 60),
-                              )
-                            ],
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                    child: Column(children: [
+                      Row(
+                        children: [
+                          EntradaTempo(
+                              valor: store.tempoEstudo, titulo: 'Estudo'),
+                          EntradaTempo(
+                              valor: store.tempoDescanso, titulo: 'Descanso'),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      Expanded(
+                        child: Column(
                           children: [
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      Color.fromRGBO(13, 181, 81, 1),
-                                  fixedSize: Size(150, 50)),
-                              onPressed: () {},
-                              child: Text(
-                                'Start',
-                                style: TextStyle(fontSize: 20),
+                            Text(
+                              'Contador',
+                              style: TextStyle(
+                                fontSize: 20,
                               ),
                             ),
-                            SizedBox(
-                              width: 30,
-                            ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      Color.fromRGBO(13, 181, 81, 1),
-                                  fixedSize: Size(150, 50)),
-                              onPressed: () {},
-                              child: Text(
-                                'Restart',
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              '5',
+                              style: TextStyle(fontSize: 60),
+                            )
                           ],
                         ),
-                        SizedBox(
-                          height: 20,
-                        )
-                      ],
-                    ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Botoes(
+                              texto: 'Iniciar',
+                              icone: Icons.play_arrow,
+                            ),
+                          ),
+                          //Padding(
+                          //padding: const EdgeInsets.all(10),
+                          //child: Botoes(
+                          //texto: 'Parar',
+                          //icone: Icons.stop,
+                          //),
+                          //),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Botoes(
+                              texto: 'Reiniciar',
+                              icone: Icons.refresh,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20)
+                    ]),
                   ),
                 ),
               ),
