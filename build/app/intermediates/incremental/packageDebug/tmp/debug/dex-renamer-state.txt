@@ -1,4 +1,4 @@
-#Thu Mar 09 14:20:17 BRT 2023
+#Sat Mar 11 18:46:55 BRT 2023
 base.0=/home/elvis/Área de Trabalho/pomodoro/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

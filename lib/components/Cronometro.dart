@@ -1,33 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
+import '../store/pomodoro.store.dart';
 
 class Cronometro extends StatelessWidget {
   const Cronometro({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Hora de Estudar',
-            style: TextStyle(
-              fontSize: 40,
-              color: Colors.white,
+    final store = Provider.of<PomodoroStore>(context);
+    return Observer(builder: (_) {
+      return Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              store.estaEstudando() ? 'Hora de Estudar' : 'Hora de Descansar',
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.white,
+              ),
             ),
-          ),
-          SizedBox(height: 20),
-          Text(
-            '25:00',
-            style: TextStyle(
-              fontSize: 110,
-              color: Colors.white,
+            SizedBox(height: 20),
+            Text(
+              '${store.minutos.toString().padLeft(2, '0')}:${store.segundos.toString().padLeft(2, '0')}',
+              style: TextStyle(
+                fontSize: 110,
+                color: Colors.white,
+              ),
             ),
-          )
-        ],
-      ),
-    );
+          ],
+        ),
+      );
+    });
   }
 }

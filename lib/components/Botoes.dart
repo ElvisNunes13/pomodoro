@@ -5,11 +5,13 @@ import 'package:flutter/src/widgets/placeholder.dart';
 class Botoes extends StatelessWidget {
   final String texto;
   final IconData icone;
+  final void Function()? click;
 
   const Botoes({
     Key? key,
     required this.texto,
     required this.icone,
+    this.click,
   }) : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class Botoes extends StatelessWidget {
                 vertical: 20,
                 horizontal: 30,
               )),
-          onPressed: () {},
+          onPressed: click,
           child: Row(
             children: [
               Padding(

@@ -1,8 +1,9 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:pomodoro/components/Botoes.dart';
 import 'package:pomodoro/components/Cronometro.dart';
 import 'package:pomodoro/components/EntradaTempo.dart';
-import 'package:pomodoro/store/contador.store.dart';
 import 'package:pomodoro/store/pomodoro.store.dart';
 import 'package:provider/provider.dart';
 
@@ -50,59 +51,71 @@ class Pomodoro extends StatelessWidget {
                       right: 10,
                     ),
                     child: Column(children: [
-                      Row(
-                        children: [
-                          EntradaTempo(
-                              valor: store.tempoEstudo, titulo: 'Estudo'),
-                          EntradaTempo(
-                              valor: store.tempoDescanso, titulo: 'Descanso'),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      Expanded(
-                        child: Column(
+                      Observer(
+                        builder: (_) => Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Text(
-                              'Contador',
-                              style: TextStyle(
-                                fontSize: 20,
-                              ),
+                            EntradaTempo(
+                              titulo: 'Estudo',
+                              valor: store.tempoEstudo,
+                              inc: store.iniciado && store.estaEstudando()
+                                  ? null
+                                  : store.incrementarTempoEstudo,
+                              dec: store.iniciado && store.estaEstudando()
+                                  ? null
+                                  : store.decrementarTempoEstudo,
                             ),
-                            SizedBox(height: 10),
-                            Text(
-                              '5',
-                              style: TextStyle(fontSize: 60),
+                            SizedBox(
+                              height: 40,
+                            ),
+                            EntradaTempo(
+                              valor: store.tempoDescanso,
+                              titulo: 'Descanso',
+                              inc: store.iniciado && store.estaDescanso()
+                                  ? null
+                                  : store.incrementarTempoDescanso,
+                              dec: store.iniciado && store.estaDescanso()
+                                  ? null
+                                  : store.decrementarTempoDescanso,
                             )
                           ],
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 10),
-                            child: Botoes(
-                              texto: 'Iniciar',
-                              icone: Icons.play_arrow,
+                      SizedBox(
+                        height: 40,
+                      ),
+                      Observer(
+                        builder: (_) => Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            if (!store.iniciado)
+                              Padding(
+                                padding: const EdgeInsets.only(right: 10),
+                                child: Botoes(
+                                  texto: 'Iniciar',
+                                  icone: Icons.play_arrow,
+                                  click: store.iniciar,
+                                ),
+                              ),
+                            if (store.iniciado)
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Botoes(
+                                  texto: 'Parar',
+                                  icone: Icons.stop,
+                                  click: store.parar,
+                                ),
+                              ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Botoes(
+                                texto: 'Reiniciar',
+                                icone: Icons.refresh,
+                                click: store.reiniciar,
+                              ),
                             ),
-                          ),
-                          //Padding(
-                          //padding: const EdgeInsets.all(10),
-                          //child: Botoes(
-                          //texto: 'Parar',
-                          //icone: Icons.stop,
-                          //),
-                          //),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Botoes(
-                              texto: 'Reiniciar',
-                              icone: Icons.refresh,
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       SizedBox(height: 20)
                     ]),

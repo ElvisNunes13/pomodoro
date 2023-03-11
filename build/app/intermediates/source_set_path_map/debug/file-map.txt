@@ -1,12 +1,15 @@
 br.com.jera.pomodoro.app-jetified-window-java-1.0.0-beta04-0 /home/elvis/.gradle/caches/transforms-3/006d93cd422dbc43e89591147c2de572/transformed/jetified-window-java-1.0.0-beta04/res
-br.com.jera.pomodoro.app-core-1.6.0-1 /home/elvis/.gradle/caches/transforms-3/4ca28c4a71705f8a687c69dda140a277/transformed/core-1.6.0/res
-br.com.jera.pomodoro.app-jetified-annotation-experimental-1.1.0-2 /home/elvis/.gradle/caches/transforms-3/8965c941cf4bee4d72541b965c7c9d39/transformed/jetified-annotation-experimental-1.1.0/res
-br.com.jera.pomodoro.app-jetified-window-1.0.0-beta04-3 /home/elvis/.gradle/caches/transforms-3/dee59bb480020f42d53c2ea15e4501f7/transformed/jetified-window-1.0.0-beta04/res
-br.com.jera.pomodoro.app-debug-4 /home/elvis/Área de Trabalho/pomodoro/android/app/src/debug/res
-br.com.jera.pomodoro.app-main-5 /home/elvis/Área de Trabalho/pomodoro/android/app/src/main/res
-br.com.jera.pomodoro.app-pngs-6 /home/elvis/Área de Trabalho/pomodoro/build/app/generated/res/pngs/debug
-br.com.jera.pomodoro.app-resValues-7 /home/elvis/Área de Trabalho/pomodoro/build/app/generated/res/resValues/debug
-br.com.jera.pomodoro.app-rs-8 /home/elvis/Área de Trabalho/pomodoro/build/app/generated/res/rs/debug
-br.com.jera.pomodoro.app-mergeDebugResources-9 /home/elvis/Área de Trabalho/pomodoro/build/app/intermediates/incremental/debug/mergeDebugResources/merged.dir
-br.com.jera.pomodoro.app-mergeDebugResources-10 /home/elvis/Área de Trabalho/pomodoro/build/app/intermediates/incremental/debug/mergeDebugResources/stripped.dir
-br.com.jera.pomodoro.app-merged_res-11 /home/elvis/Área de Trabalho/pomodoro/build/app/intermediates/merged_res/debug
+br.com.jera.pomodoro.app-jetified-core-ktx-1.6.0-1 /home/elvis/.gradle/caches/transforms-3/29256a88358009f7247298a59ad53331/transformed/jetified-core-ktx-1.6.0/res
+br.com.jera.pomodoro.app-core-1.6.0-2 /home/elvis/.gradle/caches/transforms-3/4ca28c4a71705f8a687c69dda140a277/transformed/core-1.6.0/res
+br.com.jera.pomodoro.app-jetified-annotation-experimental-1.1.0-3 /home/elvis/.gradle/caches/transforms-3/8965c941cf4bee4d72541b965c7c9d39/transformed/jetified-annotation-experimental-1.1.0/res
+br.com.jera.pomodoro.app-jetified-window-1.0.0-beta04-4 /home/elvis/.gradle/caches/transforms-3/dee59bb480020f42d53c2ea15e4501f7/transformed/jetified-window-1.0.0-beta04/res
+br.com.jera.pomodoro.app-debug-5 /home/elvis/Área de Trabalho/pomodoro/android/app/src/debug/res
+br.com.jera.pomodoro.app-main-6 /home/elvis/Área de Trabalho/pomodoro/android/app/src/main/res
+br.com.jera.pomodoro.app-pngs-7 /home/elvis/Área de Trabalho/pomodoro/build/app/generated/res/pngs/debug
+br.com.jera.pomodoro.app-resValues-8 /home/elvis/Área de Trabalho/pomodoro/build/app/generated/res/resValues/debug
+br.com.jera.pomodoro.app-rs-9 /home/elvis/Área de Trabalho/pomodoro/build/app/generated/res/rs/debug
+br.com.jera.pomodoro.app-mergeDebugResources-10 /home/elvis/Área de Trabalho/pomodoro/build/app/intermediates/incremental/debug/mergeDebugResources/merged.dir
+br.com.jera.pomodoro.app-mergeDebugResources-11 /home/elvis/Área de Trabalho/pomodoro/build/app/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+br.com.jera.pomodoro.app-merged_res-12 /home/elvis/Área de Trabalho/pomodoro/build/app/intermediates/merged_res/debug
+br.com.jera.pomodoro.app-packaged_res-13 /home/elvis/Área de Trabalho/pomodoro/build/audioplayers/intermediates/packaged_res/debug
+br.com.jera.pomodoro.app-packaged_res-14 /home/elvis/Área de Trabalho/pomodoro/build/path_provider_android/intermediates/packaged_res/debug
